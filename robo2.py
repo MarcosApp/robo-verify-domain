@@ -4,8 +4,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 # Atribuição de Variaveis
-email = "roboparapython@gmail.com"
-senha = "cursopython123"
+email = ""
+senha = ""
 
 destinatario = "roboparapython@gmail.com"
 assunto = "E-mail enviado pelo robo"
