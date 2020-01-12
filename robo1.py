@@ -3,13 +3,20 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+import xlrd
 
 print("Iniciando nosso robô... \n")
 
+dominios = []
+
+#Lendo do Excel
+workbook = xlrd.open_workbook('dominio.xlsx')
+sheet = workbook.sheet_by_index(0)
+for linha in range(0,8):
+    dominios.append(sheet.cell_value(linha,0))
+
 driver = webdriver.Chrome('/home/marcos/Projetos/robos/RobosAutomatico/chromedriver')
 driver.get("https://registro.br/")
-
-dominios = ["roboscompython.com.br", "udemy.com.br", "uol.com.br"]
 
 for dominio in dominios:
     pesquisa = driver.find_element_by_id("is-avail-field")
