@@ -7,6 +7,8 @@ import xlrd
 
 print("Iniciando nosso robô... \n")
 
+arq = open("resultados.txt", "w")
+
 dominios = []
 
 #Lendo do Excel
@@ -26,6 +28,8 @@ for dominio in dominios:
     time.sleep(2); #Dormi 2 s
     resultados = driver.find_elements_by_tag_name("strong")
     #import pdb; pdb.set_trace() Break pdb
-    print("Dominio %s %s" % (dominio, resultados[4].text))
+    texto = "Dominio %s %s\n" % (dominio, resultados[4].text)
+    arq.write(texto.encode('utf-8', errors='ignore'))
 
-driver.close();
+arq.close()
+driver.close()
